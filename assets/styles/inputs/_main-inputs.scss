@@ -1,0 +1,39 @@
+//Importação dos estilos padrão do documento
+@import "../abstract/root";
+
+//Estilização da seção dos inputs para inclusão de atividades
+.work-inputs{
+    width: 95%;
+    height: 10%;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .work__input--desc, .work__input--hour, .work__select--day{
+        @include style__inputs;
+
+        height: 60%;
+    }
+
+    .work__input--desc{
+        width: 40%
+    }
+
+    .work__select--day{
+        padding: 0
+    }
+
+    .work__btn--add, .work__btn--remove{
+        @include style__btn--add-remove;
+        height: 60%;
+    }
+
+    .work__btn--add{
+        background-color: $bg-color__btn--add;
+    }
+    .work__btn--remove{
+        background-color: $bg-color__btn--remove;
+    }
+
+}

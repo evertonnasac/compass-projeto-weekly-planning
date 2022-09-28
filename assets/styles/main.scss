@@ -1,7 +1,16 @@
 @import "../styles/abstract/reset";
 
 .screen{
-    width: 80%;
+    width: 90%;
     height: 80%;
     margin: auto;
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
 }
+
+@import "../styles/header/main-header";
+@import "../styles/inputs/main-inputs";
+@import "../styles/main-panel/main-panel"

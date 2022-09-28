@@ -4,27 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/styles/main.css">
     <title>Planejamento Semana</title>
 </head>
 <body>
     <div class="screen">
         <header>
-            <div class="title">
+            <div class="header__container--title">
                 <p class="title">Planejamento Semanal</p>
                 <p class="subtitle">Utilize o formulário para adicionar novas tarefas</p>
             </div>
             <div class="header__controls-storage">
-                <button class="controls-storage__btn--add header__btn"></button>
-                <button class="controls-storage__btn--remove header__btn"></button>
+                <button class="controls-storage__btn--add header__btn">Adicionar</button>
+                <button class="controls-storage__btn--remove header__btn">Remover</button>
             </div>
             <div class="header__container-time">
-                <p class="container-time--hour"></p>
-                <p class="container-time--date"></p>
+                <p class="container-time--hour">10:30</p>
+                <p class="container-time--date">25 de setembro de 2022</p>
             </div>
         </header>
         <section class="work-inputs">
-            <input type="text" id="work__desc--input">
-            <select name="work__day--select" id="">
+            <input type="text" class="work__input--desc" placeholder="Atividade">
+            <select class="work__select--day">
                 <option value="1">Segunda-Feira</option>
                 <option value="2">Terça-Feira</option>
                 <option value="3">Quarta-Feira</option>
@@ -33,21 +34,25 @@
                 <option value="6">Sabado</option>
                 <option value="7">Domingo</option>  
             </select>
-            <input type="time" name="work__hour--input" id="">
-            <button class="work__btn--add" aria-label="Adicionar atividade"></button>
-            <button class="work__btn--remove" aria-label="Remover todas as atividades do dia"></button>
+            <input type="time" class="work__input--hour">
+            <button class="work__btn--add" aria-label="Adicionar atividade">
+                + Adicionar atividade</button>
+            <button class="work__btn--remove" aria-label="Remover todas as atividades do dia"> 
+                - Excluir todos</button>
         </section>
         <main>
-            <aside class="header__hour">Horário</aside>
-            <article class="container-days">
-                <div class="days__mon">Segunda-Feira</div>
-                <div class="days__tue">Terça-Feira</div>
-                <div class="days__wed">Quarta-Feira</div>
-                <div class="days__thu">Quinta-Feira</div>
-                <div class="days__fri">Sexta-Feira</div>
-                <div class="days__sat">Sábado</div>
-                <div class="days__sun">Domingo</div>
-            </article>
+            <div class="main__header">
+                <label class="main-heder__hour">Horário</label>
+                <article class="main-header__container--days">
+                    <button class="days__mon btn-days">Segunda-Feira</button>
+                    <button class="days__tue btn-days">Terça-Feira</button>
+                    <button class="days__wed btn-days">Quarta-Feira</button>
+                    <button class="days__thu btn-days">Quinta-Feira</button>
+                    <button class="days__fri btn-days">Sexta-Feira</button>
+                    <button class="days__sat btn-days">Sábado</button>
+                    <button class="days__sun btn-days">Domingo</button>
+                </article>
+            </div>
             <section class="panel__works"></section>
             <figure>
                 <img src="" alt="">
