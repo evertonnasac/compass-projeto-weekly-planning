@@ -1,0 +1,37 @@
+//Estilo padrão dos botões de selecionar o dia das tarefas
+@mixin style__btn--days {
+    box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
+    border-radius: 9px 9px 0px 0px;
+    color: #fff;
+}
+
+//Cor de background de cada botão de selecionar o dia das tarefas
+$bg-color__btn--mon : #FFA246;
+$bg-color__btn--tue : #35E185;
+$bg-color__btn--wed : #6688FF;
+$bg-color__btn--thu : #B366FF;
+$bg-color__btn--fri : #66D1FF;
+$bg-color__btn--sat: #FF66D4;
+$bg-color__btn--mon: #FF6666;
+
+//Estilo padrão dos botões de adicionar e remover
+
+@mixin style__btn--add-remove {
+    border-radius: 10px;
+    color: #fff;
+}
+
+//Cor de background dos botões de adicionar e remover
+$bg-color__btn--add : #2CBE82;
+$bg-color__btn--remove: #DA2B40;
+
+//Estilo padrão dos inputs
+@mixin style__inputs {
+    border: 1px solid #2CBE82;
+    border-radius: 10px;
+    padding: 10px 12px;
+}
+
+
+
+
