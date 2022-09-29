@@ -27,23 +27,18 @@ header{
     }
 
     //Estilização do container ddos botões de adicionar e remover do localstorage
-    .header__controls-storage{
-
-        width: 30%;
-        height: 45%;
-
-        .header__btn{
-            @include style__btn--add-remove;
-            width: 45%;
-            height: 70%;
-        }
-
-        .controls-storage__btn--add{
-           background-color: $bg-color__btn--add;
-    
-        }
-        .controls-storage__btn--remove{
-            background-color: $bg-color__btn--remove;
-        }
+    .header__btn{
+        @include style__btn--add-remove;
+        width: 15%;
+        height: 30%;
     }
+
+    .header__btn--add{
+        background-color: $bg-color__btn--add;
+
+    }
+    .header__btn--remove{
+        background-color: $bg-color__btn--remove;
+    }
+
 }

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/styles/main.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <script src="./scripts/script.js" defer></script>
     <title>Planejamento Semana</title>
 </head>
 <body>
@@ -14,10 +15,8 @@
                 <p class="title">Planejamento Semanal</p>
                 <p class="subtitle">Utilize o formulário para adicionar novas tarefas</p>
             </div>
-            <div class="header__controls-storage">
-                <button class="controls-storage__btn--add header__btn">Adicionar</button>
-                <button class="controls-storage__btn--remove header__btn">Remover</button>
-            </div>
+            <button class="header__btn--add header__btn">Adicionar</button>
+            <button class="header__btn--remove header__btn">Remover</button>
             <div class="header__container-time">
                 <p class="container-time--hour">10:30</p>
                 <p class="container-time--date">25 de setembro de 2022</p>
@@ -44,16 +43,21 @@
             <div class="main__header">
                 <label class="main-heder__hour">Horário</label>
                 <article class="main-header__container--days">
-                    <button class="days__mon btn-days">Segunda-Feira</button>
-                    <button class="days__tue btn-days">Terça-Feira</button>
-                    <button class="days__wed btn-days">Quarta-Feira</button>
-                    <button class="days__thu btn-days">Quinta-Feira</button>
-                    <button class="days__fri btn-days">Sexta-Feira</button>
-                    <button class="days__sat btn-days">Sábado</button>
-                    <button class="days__sun btn-days">Domingo</button>
+                    <button class="days__mon btn-days" data-id = "1">Segunda-Feira</button>
+                    <button class="days__tue btn-days" data-id = "2">Terça-Feira</button>
+                    <button class="days__wed btn-days" data-id = "3">Quarta-Feira</button>
+                    <button class="days__thu btn-days" data-id = "4">Quinta-Feira</button>
+                    <button class="days__fri btn-days" data-id = "5">Sexta-Feira</button>
+                    <button class="days__sat btn-days" data-id = "6">Sábado</button>
+                    <button class="days__sun btn-days" data-id = "7">Domingo</button>
                 </article>
             </div>
-            <section class="panel__works"></section>
+            <section class="main__panel--works">
+                <aside class="panel-works__hour"></aside>
+                <div class="panel-works__container-works">
+                    <div class="container-works__content"></div>
+                </div>
+            </section>
             <figure>
                 <img src="" alt="">
             </figure>

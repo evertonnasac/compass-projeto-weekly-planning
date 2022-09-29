@@ -52,22 +52,18 @@ header .header__container--title {
   color: #fff;
   border-radius: 0px 14px 15px 0px;
 }
-header .header__controls-storage {
-  width: 30%;
-  height: 45%;
-}
-header .header__controls-storage .header__btn {
+header .header__btn {
   border-radius: 10px;
   border: none;
   color: #fff;
   cursor: pointer;
-  width: 45%;
-  height: 70%;
+  width: 15%;
+  height: 30%;
 }
-header .header__controls-storage .controls-storage__btn--add {
+header .header__btn--add {
   background-color: #2CBE82;
 }
-header .header__controls-storage .controls-storage__btn--remove {
+header .header__btn--remove {
   background-color: #DA2B40;
 }
 
@@ -113,10 +109,10 @@ main .main__header {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  height: 13%;
+  height: 10%;
 }
 main .main__header .main-heder__hour {
-  height: 100%;
+  height: calc(100% + 15px);
   width: 6.5%;
   padding: 1.5% 1%;
   font-size: 1.3vw;
@@ -126,7 +122,7 @@ main .main__header .main-heder__hour {
 main .main__header .main-header__container--days {
   display: flex;
   width: 90%;
-  height: 90%;
+  height: 100%;
   display: flex;
   justify-content: space-evenly;
 }
@@ -160,4 +156,39 @@ main .main__header .main-header__container--days .days__sat {
 }
 main .main__header .main-header__container--days .days__sun {
   background-color: #FF6666;
+}
+main .main__panel--works {
+  display: flex;
+  justify-content: space-around;
+  height: 90%;
+  width: 100%;
+  overflow-y: scroll;
+}
+main .main__panel--works .panel-works__hour {
+  width: 6.5%;
+  height: calc(100% - 15px);
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-self: flex-end;
+}
+main .main__panel--works .panel-works__container-works {
+  height: 100%;
+  width: 90%;
+  background-color: brown;
+  overflow-x: scroll;
+  transform: rotateX(180deg);
+}
+main .main__panel--works .panel-works__container-works .container-works__content {
+  height: 99.9%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transform: rotateX(180deg);
+}
+main .main__panel--works .panel-works__container-works .container-works__content .content-works__container-card {
+  display: flex;
+  gap: 20px;
 }/*# sourceMappingURL=main.css.map */
