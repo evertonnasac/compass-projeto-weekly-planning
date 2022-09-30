@@ -174,49 +174,49 @@ main .main__panel--works .panel-works__hour {
 }
 main .main__panel--works .panel-works__hour .mon {
   width: 100%;
-  height: 60px;
+  height: 75px;
   border-radius: 15px;
   background-color: #FFA246;
   flex-shrink: 0;
 }
 main .main__panel--works .panel-works__hour .tue {
   width: 100%;
-  height: 60px;
+  height: 75px;
   border-radius: 15px;
   background-color: #35E185;
   flex-shrink: 0;
 }
 main .main__panel--works .panel-works__hour .wed {
   width: 100%;
-  height: 60px;
+  height: 75px;
   border-radius: 15px;
   background-color: #6688FF;
   flex-shrink: 0;
 }
 main .main__panel--works .panel-works__hour .thu {
   width: 100%;
-  height: 60px;
+  height: 75px;
   border-radius: 15px;
   background-color: #B366FF;
   flex-shrink: 0;
 }
 main .main__panel--works .panel-works__hour .fri {
   width: 100%;
-  height: 60px;
+  height: 75px;
   border-radius: 15px;
   background-color: #66D1FF;
   flex-shrink: 0;
 }
 main .main__panel--works .panel-works__hour .sat {
   width: 100%;
-  height: 60px;
+  height: 75px;
   border-radius: 15px;
   background-color: #FF66D4;
   flex-shrink: 0;
 }
 main .main__panel--works .panel-works__hour .sun {
   width: 100%;
-  height: 60px;
+  height: 75px;
   border-radius: 15px;
   background-color: #FF6666;
   flex-shrink: 0;
@@ -240,17 +240,31 @@ main .main__panel--works .panel-works__container-works .container-works__content
 main .main__panel--works .panel-works__container-works .container-works__content .content-works__container-card {
   display: flex;
   gap: 20px;
-  height: 60px;
+  height: 75px;
   flex-shrink: 0;
   box-shadow: 0px 2px 5.5px rgba(0, 0, 0, 0.02);
 }
 main .main__panel--works .panel-works__container-works .container-works__content .content-works__container-card .card-work {
-  min-width: 200px;
+  width: 350px;
   height: 100%;
   border-radius: 15px;
   border: 1px solid #FFFFFF;
   padding-left: 5px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
   background: linear-gradient(112.83deg, rgba(255, 255, 255, 0.3444) 0%, rgba(255, 255, 255, 0.336) 110.84%);
+}
+main .main__panel--works .panel-works__container-works .container-works__content .content-works__container-card .card-work .btn__remove {
+  width: 60px;
+  height: 20px;
+  position: relative;
+  margin-left: 2px;
+  background-color: #98031E;
+  color: #FFFFFF;
+  border: none;
+  cursor: pointer;
 }
 main .main__panel--works .panel-works__container-works .container-works__content .content-works__container-card .mon {
   border-left: 10px solid #FFA246;

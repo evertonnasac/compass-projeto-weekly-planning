@@ -60,6 +60,16 @@ const handleSchedule = (() =>{
                 day[work.time] = [{id: schedule["lastId"], desc:work.desc}]
                 schedule["lastId"] = schedule["lastId"] + 1
             }
+        },
+
+        removeWorkByDay : (idParam, idDay, timeParam) => {
+            let time = schedule[idDay][timeParam]
+            schedule[idDay][timeParam] = time.filter(({id}) => id != idParam)
+
+            if( schedule[idDay][timeParam].length  == 0){
+               delete schedule[idDay][timeParam]
+            }
+            
         }
     }
  
@@ -74,6 +84,7 @@ const clearScheduleOnDOM = () =>{
     containerHour.innerHTML = ""
     containerWork.innerHTML = ""
 }
+
 
 //Função para renderizar os dados das atividades no DOM
 const renderSchedule = (key, value, idDay) =>{
@@ -90,6 +101,7 @@ const renderSchedule = (key, value, idDay) =>{
 
     value.forEach(({desc, id}) => {
 
+        //Criando o card com a descrição da atividade
         let cardDesc = document.createElement("div")
         cardDesc.classList.add(idDay)
         cardDesc.classList.add("card-work")
@@ -97,6 +109,18 @@ const renderSchedule = (key, value, idDay) =>{
         cardDesc.setAttribute("data-id", id)
         cardDesc.setAttribute("data-time", key)
         containerCardWork.appendChild(cardDesc)
+
+        //Criando o botao de remover a atividade
+        let btn_remove = document.createElement("button")
+        btn_remove.setAttribute("value", "Apagar")
+        btn_remove.classList.add("btn__remove")
+        btn_remove.innerHTML = "Apagar"
+        btn_remove.setAttribute("data-id", id)
+        btn_remove.setAttribute("data-time", key)
+        btn_remove.setAttribute("data-day", idDay)
+
+        btn_remove.addEventListener("click", removeWork)
+        cardDesc.appendChild(btn_remove)
     })
 
     containerWork.appendChild(containerCardWork)
@@ -118,6 +142,7 @@ const getDay = (e) => {
     })   
 }
 
+//Função para criar um objeto atividade e passar para a função setWork que salva os dados
 const createWork = ()=>{
     const timeWork = getElement(".work__input--hour").value
     const descWork = getElement(".work__input--desc").value
@@ -129,6 +154,15 @@ const createWork = ()=>{
     const work = new factoryWork(timeWork, descWork)
 
     handleSchedule.setWork(work, idDay)
+}
+
+const removeWork = (e) => {
+    const id = e.target.getAttribute("data-id")
+    const idDay = e.target.getAttribute("data-day")
+    const time = e.target.getAttribute("data-time")
+
+    handleSchedule.removeWorkByDay(id, idDay,time)
+
 }
 
 

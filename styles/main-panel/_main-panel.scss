@@ -1,7 +1,7 @@
 //Importação dos estilos padrão do documento
 @import "../abstract/root";
 
-$hight__cards-work: 60px;
+$hight__cards-work: 75px;
 $b-radius__cards-work: 15px;
 
 @mixin styleCardWork($color) {
@@ -148,19 +148,35 @@ main{
                     height: $hight__cards-work;
                     flex-shrink: 0;
 
-                   box-shadow: 0px 2px 5.5px rgba(0, 0, 0, 0.02);
+                    box-shadow: 0px 2px 5.5px rgba(0, 0, 0, 0.02);
 
                     .card-work{
-                        min-width: 200px;
+                        width: 350px;
                         height: 100%;
-
                         border-radius: 15px;
                         border: 1px solid #FFFFFF;
                         padding-left: 5px;
+                        flex-shrink: 0;
+
+                        display:  flex;
+                        align-items: flex-start;
+                        justify-content: space-between;
 
                         background: linear-gradient(112.83deg, rgba(255, 255, 255, 0.3444) 0%, 
                         rgba(255, 255, 255, 0.336) 110.84%);
 
+                        .btn__remove{
+                            width: 60px;
+                            height: 20px;
+                            
+                            position: relative;
+                            margin-left: 2px;
+                    
+                            background-color: #98031E;;
+                            color: #FFFFFF;
+                            border: none;
+                            cursor: pointer;
+                        }
                     }
                     
                     .mon{
