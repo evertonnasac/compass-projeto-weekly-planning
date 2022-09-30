@@ -1,6 +1,22 @@
 //Importação dos estilos padrão do documento
 @import "../abstract/root";
 
+$hight__cards-work: 60px;
+$b-radius__cards-work: 15px;
+
+@mixin styleCardWork($color) {
+    border-left: 10px solid $color
+}
+
+@mixin styleHourWork($color) {
+    width: 100%;
+    height: $hight__cards-work;
+    border-radius: $b-radius__cards-work;
+    background-color: $color;
+    flex-shrink: 0;
+
+}
+
 //Estilização do elemento principal que lista as atividades cadastradas
 main{
     width: 100%;
@@ -77,22 +93,43 @@ main{
             width: 6.5%;
             height: calc(100% - 15px);
 
-            background-color: aquamarine;
-
             display: flex;
             flex-direction: column;
+            
             gap: 10px;
             align-self: flex-end;
+
+            .mon{
+                @include styleHourWork($bg-color__mon);
+            }
+            .tue{
+                @include styleHourWork($bg-color__tue);
+            }
+            .wed {
+                @include styleHourWork($bg-color__wed);
+            }
+            .thu{
+                @include styleHourWork($bg-color__thu);
+            }
+            .fri{
+                @include styleHourWork($bg-color__fri);
+            }
+            .sat{
+                @include styleHourWork($bg-color__sat);
+            }
+            .sun{
+                @include styleHourWork($bg-color__sun);
+            }
         }
 
         .panel-works__container-works{
             height: 100%;
             width: 90%;
-            background-color: brown;
 
             overflow-x: scroll;
             transform: rotateX(180deg);
-
+            overflow-y: visible;
+            
             .container-works__content{
 
                 height: 99.9%;
@@ -102,12 +139,55 @@ main{
                 flex-direction: column;
                 gap: 10px;
                 
-                transform: rotateX(180deg);
-
+                transform: rotateX(180deg); 
+                overflow-y: visible;
+               
                 .content-works__container-card{
                     display: flex;
                     gap: 20px;
+                    height: $hight__cards-work;
+                    flex-shrink: 0;
+
+                   box-shadow: 0px 2px 5.5px rgba(0, 0, 0, 0.02);
+
+                    .card-work{
+                        min-width: 200px;
+                        height: 100%;
+
+                        border-radius: 15px;
+                        border: 1px solid #FFFFFF;
+                        padding-left: 5px;
+
+                        background: linear-gradient(112.83deg, rgba(255, 255, 255, 0.3444) 0%, 
+                        rgba(255, 255, 255, 0.336) 110.84%);
+
+                    }
+                    
+                    .mon{
+                        @include styleCardWork($bg-color__mon)
+                    }
+                    .tue{
+                        @include styleCardWork($bg-color__tue)
+                    }
+                    .wed{
+                        @include styleCardWork($bg-color__wed)
+                    }
+                    .thu{
+                        @include styleCardWork($bg-color__thu)
+                    }
+                    .fri{
+                        @include styleCardWork($bg-color__fri)
+                    }
+                    .sat{
+                        @include styleCardWork($bg-color__sat)
+                    }
+                    .sun{
+                        @include styleCardWork($bg-color__sun)
+                    }
                 }
+
+                
+    
             }
 
         }
