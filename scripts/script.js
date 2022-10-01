@@ -76,9 +76,26 @@ const handleSchedule = (() =>{
         removeAllWorksByDay : (dayCurrent) =>{
             schedule[dayCurrent] = {}
 
-        }
+        },
 
-        
+        saveLocalStorage : () =>{
+            localStorage.setItem("schedule", JSON.stringify(schedule))
+            localStorage.getItem("schedule") ? 
+            alert("Os dados foram salvos com sucesso"):
+            alert("Não foi poss[ivel salvar os dados, por favor, tente novamente")
+            
+        },
+
+        deleteLocalStorage : () =>{
+            localStorage.removeItem("schedule")
+            alert("Os dados foram apagados, salve no localstorage se desejar manter o trabalho atual")
+        },
+
+        getLocalStorage : () => {
+            schedule = JSON.parse(localStorage.getItem("schedule")) || schedule
+
+        }
+   
     }
  
 })()
@@ -110,7 +127,7 @@ const clearScheduleOnDOM = () =>{
 }
 
 
-//Função para renderizar os dados das atividades no DOM
+//Função para renderizar os as atividades no DOM
 const renderSchedule = (key, value, idDay) =>{
     let containerWork = getElement(".container-works__content")
     let containerHour = getElement(".panel-works__hour")
@@ -156,6 +173,7 @@ const getDay = (day) => {
     const idDay = day
 
     handleCurrentDay.setCurrentDay(idDay)
+
     setBtnActiveDay()
 
     let schedule = handleSchedule.getScheduleByDay(idDay)
@@ -185,7 +203,7 @@ const setBtnActiveDay = () =>{
     })
 }
 
-//Função para criar um objeto "work" e passar para a função setWork que salva os dados
+//Função para criar um objeto "work" e passa para a função setWork que salva os dados
 const createWork = ()=>{
     const timeWork = getElement(".work__input--hour").value
     const descWork = getElement(".work__input--desc").value
@@ -247,10 +265,12 @@ const addListenerBtnDays = () => {
 
 btn_addWork.addEventListener("click", createWork)
 btn_removeAllWork.addEventListener("click", deleteAllWorksByDay)
-
+btn_addStorage.addEventListener("click", handleSchedule.saveLocalStorage)
+btn_removeStorage.addEventListener("click", handleSchedule.deleteLocalStorage)
 
 const init = () =>{
     addListenerBtnDays()
+    handleSchedule.getLocalStorage()
 }
 
 /*
