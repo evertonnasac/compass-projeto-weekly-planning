@@ -26,16 +26,38 @@ body {
 
 .screen {
   width: 90%;
-  height: 80%;
+  height: 95%;
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
+::-webkit-scrollbar {
+  width: 7px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(216, 211, 211);
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #90949b;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 header {
   width: 100%;
-  height: 20%;
+  height: 15%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -67,9 +89,31 @@ header .header__btn--remove {
   background-color: #DA2B40;
 }
 
+::-webkit-scrollbar {
+  width: 7px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(216, 211, 211);
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #90949b;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .work-inputs {
   width: 95%;
-  height: 10%;
+  height: 8%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -101,9 +145,31 @@ header .header__btn--remove {
   background-color: #DA2B40;
 }
 
+::-webkit-scrollbar {
+  width: 7px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(216, 211, 211);
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #90949b;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 main {
   width: 100%;
-  height: 65%;
+  height: 75%;
 }
 main .main__header {
   display: flex;
@@ -136,111 +202,118 @@ main .main__header .main-header__container--days .btn-days {
   width: 12%;
   height: 60%;
 }
-main .main__header .main-header__container--days .days__mon {
+main .main__header .main-header__container--days .selected {
+  transform: scale(1.25);
+}
+main .main__header .main-header__container--days .btn__mon {
   background-color: #FFA246;
 }
-main .main__header .main-header__container--days .days__tue {
+main .main__header .main-header__container--days .btn__tue {
   background-color: #35E185;
 }
-main .main__header .main-header__container--days .days__wed {
+main .main__header .main-header__container--days .btn__wed {
   background-color: #6688FF;
 }
-main .main__header .main-header__container--days .days__thu {
+main .main__header .main-header__container--days .btn__thu {
   background-color: #B366FF;
 }
-main .main__header .main-header__container--days .days__fri {
+main .main__header .main-header__container--days .btn__fri {
   background-color: #66D1FF;
 }
-main .main__header .main-header__container--days .days__sat {
+main .main__header .main-header__container--days .btn__sat {
   background-color: #FF66D4;
 }
-main .main__header .main-header__container--days .days__sun {
+main .main__header .main-header__container--days .btn__sun {
   background-color: #FF6666;
 }
 main .main__panel--works {
-  display: flex;
-  justify-content: space-around;
   height: 90%;
   width: 100%;
-  overflow-y: scroll;
+  overflow: scroll;
+  transform: rotateX(180deg);
+  padding-bottom: 20px;
 }
-main .main__panel--works .panel-works__hour {
-  width: 6.5%;
-  height: calc(100% - 15px);
+main .main__panel--works .panel-works__container-works {
+  min-height: 99%;
+  width: 100%;
+  transform: rotateX(180deg);
+  display: flex;
+  justify-content: space-between;
+}
+main .main__panel--works .panel-works__container-works .panel-works__hour {
+  width: 8%;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  align-self: flex-end;
+  flex-shrink: 0;
 }
-main .main__panel--works .panel-works__hour .mon {
+main .main__panel--works .panel-works__container-works .panel-works__hour .mon {
   width: 100%;
-  height: 75px;
+  max-width: 65px;
+  height: 65px;
   border-radius: 15px;
   background-color: #FFA246;
   flex-shrink: 0;
 }
-main .main__panel--works .panel-works__hour .tue {
+main .main__panel--works .panel-works__container-works .panel-works__hour .tue {
   width: 100%;
-  height: 75px;
+  max-width: 65px;
+  height: 65px;
   border-radius: 15px;
   background-color: #35E185;
   flex-shrink: 0;
 }
-main .main__panel--works .panel-works__hour .wed {
+main .main__panel--works .panel-works__container-works .panel-works__hour .wed {
   width: 100%;
-  height: 75px;
+  max-width: 65px;
+  height: 65px;
   border-radius: 15px;
   background-color: #6688FF;
   flex-shrink: 0;
 }
-main .main__panel--works .panel-works__hour .thu {
+main .main__panel--works .panel-works__container-works .panel-works__hour .thu {
   width: 100%;
-  height: 75px;
+  max-width: 65px;
+  height: 65px;
   border-radius: 15px;
   background-color: #B366FF;
   flex-shrink: 0;
 }
-main .main__panel--works .panel-works__hour .fri {
+main .main__panel--works .panel-works__container-works .panel-works__hour .fri {
   width: 100%;
-  height: 75px;
+  max-width: 65px;
+  height: 65px;
   border-radius: 15px;
   background-color: #66D1FF;
   flex-shrink: 0;
 }
-main .main__panel--works .panel-works__hour .sat {
+main .main__panel--works .panel-works__container-works .panel-works__hour .sat {
   width: 100%;
-  height: 75px;
+  max-width: 65px;
+  height: 65px;
   border-radius: 15px;
   background-color: #FF66D4;
   flex-shrink: 0;
 }
-main .main__panel--works .panel-works__hour .sun {
+main .main__panel--works .panel-works__container-works .panel-works__hour .sun {
   width: 100%;
-  height: 75px;
+  max-width: 65px;
+  height: 65px;
   border-radius: 15px;
   background-color: #FF6666;
   flex-shrink: 0;
 }
-main .main__panel--works .panel-works__container-works {
-  height: 100%;
-  width: 90%;
-  overflow-x: scroll;
-  transform: rotateX(180deg);
-  overflow-y: visible;
-}
 main .main__panel--works .panel-works__container-works .container-works__content {
-  height: 99.9%;
-  width: 100%;
+  height: 99%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transform: rotateX(180deg);
-  overflow-y: visible;
 }
 main .main__panel--works .panel-works__container-works .container-works__content .content-works__container-card {
   display: flex;
   gap: 20px;
-  height: 75px;
+  height: 65px;
   flex-shrink: 0;
   box-shadow: 0px 2px 5.5px rgba(0, 0, 0, 0.02);
 }

@@ -38,9 +38,29 @@ $bg-color__sat: #FF66D4;
 $bg-color__sun: #FF6666;
 
 
+::-webkit-scrollbar {
+    width: 7px;
+    height: 5px;
+  
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgb(216, 211, 211);
+    border-radius: 5px;
+}
 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    
+    background: #90949b;
+    border-radius: 5px;
+}
 
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
 
 
 

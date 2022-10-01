@@ -1,7 +1,7 @@
 //Importação dos estilos padrão do documento
 @import "../abstract/root";
 
-$hight__cards-work: 75px;
+$hight__cards-work: 65px;
 $b-radius__cards-work: 15px;
 
 @mixin styleCardWork($color) {
@@ -10,6 +10,7 @@ $b-radius__cards-work: 15px;
 
 @mixin styleHourWork($color) {
     width: 100%;
+    max-width: 65px;
     height: $hight__cards-work;
     border-radius: $b-radius__cards-work;
     background-color: $color;
@@ -20,7 +21,7 @@ $b-radius__cards-work: 15px;
 //Estilização do elemento principal que lista as atividades cadastradas
 main{
     width: 100%;
-    height: 65%;
+    height: 75%;
 
     //Estilização do cabeçalho que contem a label hotarioos e os botões que selecionam o dia
     .main__header{
@@ -30,7 +31,7 @@ main{
         width: 100%;
         height: 10%;
 
-        //Estilização da label horario do cabeçalho do container das atividades
+        //Estilização da label horario no cabeçalho do container das atividades
         .main-heder__hour{
             height: calc(100% + 15px);
             width: 6.5%;
@@ -49,98 +50,102 @@ main{
     
             display: flex;
             justify-content: space-evenly;
-    
+
+
             .btn-days{
                 @include style__btn--days;
                 width: 12%;
                 height: 60%;
             }
+
+            .selected{
+                transform: scale(1.25);
+            }
     
-            .days__mon{
+            .btn__mon{
                 background-color: $bg-color__mon;
             }
-            .days__tue{
+            .btn__tue{
                 background-color: $bg-color__tue;
             }
-            .days__wed{
+            .btn__wed{
                 background-color: $bg-color__wed;
             }
-            .days__thu{
+            .btn__thu{
                 background-color: $bg-color__thu
             }
-            .days__fri{
+            .btn__fri{
                 background-color: $bg-color__fri
             }
-            .days__sat{
+            .btn__sat{
                 background-color: $bg-color__sat;
             }
-            .days__sun{
+            .btn__sun{
                 background-color: $bg-color__sun;
             }
+            
         }
     }
 
     .main__panel--works{
 
-        display: flex;
-        justify-content: space-around;
         height: 90%;
         width: 100%;
 
-        overflow-y: scroll;
+        overflow: scroll;
+        transform: rotateX(180deg);
 
-        .panel-works__hour{
-            width: 6.5%;
-            height: calc(100% - 15px);
+        padding-bottom: 20px;
+        
+        .panel-works__container-works{
+            min-height: 99%;
+            width: 100%;
+
+            transform: rotateX(180deg);
 
             display: flex;
-            flex-direction: column;
-            
-            gap: 10px;
-            align-self: flex-end;
+            justify-content: space-between;
 
-            .mon{
-                @include styleHourWork($bg-color__mon);
-            }
-            .tue{
-                @include styleHourWork($bg-color__tue);
-            }
-            .wed {
-                @include styleHourWork($bg-color__wed);
-            }
-            .thu{
-                @include styleHourWork($bg-color__thu);
-            }
-            .fri{
-                @include styleHourWork($bg-color__fri);
-            }
-            .sat{
-                @include styleHourWork($bg-color__sat);
-            }
-            .sun{
-                @include styleHourWork($bg-color__sun);
-            }
-        }
-
-        .panel-works__container-works{
-            height: 100%;
-            width: 90%;
-
-            overflow-x: scroll;
-            transform: rotateX(180deg);
-            overflow-y: visible;
-            
-            .container-works__content{
-
-                height: 99.9%;
-                width: 100%;
+            .panel-works__hour{
+                width: 8%;
+                //height: 99%;
     
                 display: flex;
                 flex-direction: column;
-                gap: 10px;
                 
-                transform: rotateX(180deg); 
-                overflow-y: visible;
+                gap: 10px;
+                flex-shrink: 0;
+    
+                .mon{
+                    @include styleHourWork($bg-color__mon);
+                }
+                .tue{
+                    @include styleHourWork($bg-color__tue);
+                }
+                .wed {
+                    @include styleHourWork($bg-color__wed);
+                }
+                .thu{
+                    @include styleHourWork($bg-color__thu);
+                }
+                .fri{
+                    @include styleHourWork($bg-color__fri);
+                }
+                .sat{
+                    @include styleHourWork($bg-color__sat);
+                }
+                .sun{
+                    @include styleHourWork($bg-color__sun);
+                }
+            }
+            
+            .container-works__content{
+                height: 99%;
+                width: 90%;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
                
                 .content-works__container-card{
                     display: flex;
@@ -162,8 +167,9 @@ main{
                         align-items: flex-start;
                         justify-content: space-between;
 
-                        background: linear-gradient(112.83deg, rgba(255, 255, 255, 0.3444) 0%, 
-                        rgba(255, 255, 255, 0.336) 110.84%);
+                        background: linear-gradient(112.83deg, 
+                            rgba(255, 255, 255, 0.3444) 0%, 
+                            rgba(255, 255, 255, 0.336) 110.84%);
 
                         .btn__remove{
                             width: 60px;
@@ -207,8 +213,7 @@ main{
             }
 
         }
-         
-     
+        
 
     }
    

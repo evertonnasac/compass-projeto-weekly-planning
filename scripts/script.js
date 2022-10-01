@@ -3,7 +3,7 @@ const btn_days = document.querySelectorAll(".btn-days")
 
 //Referência dos botoes de adicionar e remover
 const btn_addWork = document.querySelector(".work__btn--add")
-const btn_removeWork = document.querySelector(".work__btn--remove")
+const btn_removeAllWork = document.querySelector(".work__btn--remove")
 
 //Referência dos botoes de adicionar e remover localStorage
 const btn_addStorage = document.querySelector(".header__btn--add")
@@ -24,9 +24,10 @@ function factoryWork(time, desc){
 const handleSchedule = (() =>{
 
     /*Estrutura de dados: Objeto schedule
-        Chave: id do dia da semana (1-seg, 2-ter, 3-qua, 4-qui, 5-sex, 6-sab, 7-dom)
-        Valor: Objeto --Chave: hora das atividades convertida em minutos
-                        Valor: array que contem a descricao das atividades
+        Chave: id do dia da semana 
+        Valor: Objeto --Chave: hora das atividades 
+                        Valor: array que contem o id e a descricao das atividades
+         
     */
    let schedule = {
 
@@ -70,10 +71,33 @@ const handleSchedule = (() =>{
                delete schedule[idDay][timeParam]
             }
             
+        },
+
+        removeAllWorksByDay : (dayCurrent) =>{
+            schedule[dayCurrent] = {}
+
         }
+
+        
     }
  
 })()
+
+//Função que altera o estado do dia corrente na aplicação
+const handleCurrentDay = (() => {
+
+    let currentDay
+
+    return {
+        getCurrentDay : () => currentDay,
+
+        setCurrentDay : (day) => {
+            currentDay = day
+        }
+    }
+})()
+
+
 
 
 //Função para limpar os dados na DOM
@@ -128,8 +152,11 @@ const renderSchedule = (key, value, idDay) =>{
 }
 
 //Função para selecionar filtrar as atividades por dia da semana
-const getDay = (e) => {
-    const idDay = e.target.getAttribute("data-id")
+const getDay = (day) => {
+    const idDay = day
+
+    handleCurrentDay.setCurrentDay(idDay)
+    setBtnActiveDay()
 
     let schedule = handleSchedule.getScheduleByDay(idDay)
     let keys = Object.keys(schedule)
@@ -142,7 +169,23 @@ const getDay = (e) => {
     })   
 }
 
-//Função para criar um objeto atividade e passar para a função setWork que salva os dados
+//Função para destacar o botao correspondente ao dia atual
+const setBtnActiveDay = () =>{
+    let currentDay = handleCurrentDay.getCurrentDay()
+  
+    btn_days.forEach(btn =>{
+        let idDay = btn.getAttribute("data-id")
+
+        if(idDay == currentDay){
+            btn.classList.add("selected")
+        }
+        else{
+            btn.classList.remove("selected")
+        }
+    })
+}
+
+//Função para criar um objeto "work" e passar para a função setWork que salva os dados
 const createWork = ()=>{
     const timeWork = getElement(".work__input--hour").value
     const descWork = getElement(".work__input--desc").value
@@ -150,36 +193,83 @@ const createWork = ()=>{
     const select = getElement(".work__select--day")
     const idDay = select.options[select.selectedIndex].value;
 
-
     const work = new factoryWork(timeWork, descWork)
 
-    handleSchedule.setWork(work, idDay)
+    if(timeWork && descWork){
+        handleSchedule.setWork(work, idDay)
+
+        timeWork.value = ""
+        descWork.value = ""
+
+        getDay(idDay)
+    }
+    else{
+        if(!descWork){
+            alert("Por favor, preencha a descrição da atividade corretamente")
+            return
+        }
+        if(!timeWork){
+            alert("Por favor, preencha o horário da atividade corretamente")
+        }
+    }
+    
 }
 
+//Função para deletar a atividade selecionada
 const removeWork = (e) => {
     const id = e.target.getAttribute("data-id")
     const idDay = e.target.getAttribute("data-day")
     const time = e.target.getAttribute("data-time")
 
     handleSchedule.removeWorkByDay(id, idDay,time)
+    getDay(idDay)
+}
+
+//Função para deletar todas as tarefas do dia corrente na aplicação
+const deleteAllWorksByDay = () =>{
+    const dayCurrent = handleCurrentDay.getCurrentDay()
+    handleSchedule.removeAllWorksByDay(dayCurrent)
+
+    getDay(dayCurrent)
 
 }
 
 
-//Adicinando listener de evento dos botos de selecionar o dia
+////Listener de eventos
+
 const addListenerBtnDays = () => {
     btn_days.forEach((btn)=>{
         btn.addEventListener("click", (e) => {
-            getDay(e)
+            getDay(e.target.getAttribute("data-id"))
         })
     })
 }
 
 btn_addWork.addEventListener("click", createWork)
+btn_removeAllWork.addEventListener("click", deleteAllWorksByDay)
 
 
 const init = () =>{
     addListenerBtnDays()
 }
+
+/*
+let div2 = document.querySelector(".panel-works__hour")
+let div = document.querySelector(".main__panel--works")
+
+div.addEventListener("scroll", (e)=>{
+    let p = e.target.scrollLeft
+    if(p > 0){
+        console.log(p)
+        div2.style.position  = "fixed"
+    }
+    if(p==0){
+        div2.style.position = "static"
+    }
+    
+})*/
+
+
+
 
 init()
