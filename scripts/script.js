@@ -82,13 +82,13 @@ const handleSchedule = (() =>{
             localStorage.setItem("schedule", JSON.stringify(schedule))
             localStorage.getItem("schedule") ? 
             alert("Os dados foram salvos com sucesso"):
-            alert("Não foi poss[ivel salvar os dados, por favor, tente novamente")
+            alert("Não foi possível salvar os dados, por favor, tente novamente")
             
         },
 
         deleteLocalStorage : () =>{
             localStorage.removeItem("schedule")
-            alert("Os dados foram apagados, salve no localstorage se desejar manter o trabalho atual")
+            alert("Os dados foram apagados, se desejar manter o trabalho atual, salve no localstorage")
         },
 
         getLocalStorage : () => {
@@ -160,7 +160,9 @@ const renderSchedule = (key, value, idDay) =>{
         btn_remove.setAttribute("data-time", key)
         btn_remove.setAttribute("data-day", idDay)
 
-        btn_remove.addEventListener("click", removeWork)
+        btn_remove.addEventListener("click", (e) =>{
+            actionUser("Deseja apagar essa atividade?", removeWork, e)})
+
         cardDesc.appendChild(btn_remove)
     })
 
@@ -263,10 +265,25 @@ const addListenerBtnDays = () => {
     })
 }
 
+const actionUser = (message, callback, event) => {
+    let opt = confirm(message)
+    if(opt){
+        callback(event)
+    }
+}
+
 btn_addWork.addEventListener("click", createWork)
-btn_removeAllWork.addEventListener("click", deleteAllWorksByDay)
+
+btn_removeAllWork.addEventListener("click", () =>{
+    actionUser("Deseja apagar todos as atividades do dia?", deleteAllWorksByDay)
+})
+
 btn_addStorage.addEventListener("click", handleSchedule.saveLocalStorage)
-btn_removeStorage.addEventListener("click", handleSchedule.deleteLocalStorage)
+
+btn_removeStorage.addEventListener("click", () =>{
+    actionUser("Deseja apagar todos os dados salvos no LocalStorage definitivamente?", 
+                handleSchedule.deleteLocalStorage)
+})
 
 const init = () =>{
     addListenerBtnDays()
