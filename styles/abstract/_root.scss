@@ -36,6 +36,7 @@ $bg-color__thu : #B366FF;
 $bg-color__fri : #66D1FF;
 $bg-color__sat: #FF66D4;
 $bg-color__sun: #FF6666;
+$bg-color__err: #F55D5D;
 
 
 ::-webkit-scrollbar {
@@ -48,6 +49,7 @@ $bg-color__sun: #FF6666;
 ::-webkit-scrollbar-track {
     background: rgb(216, 211, 211);
     border-radius: 5px;
+    
 }
 
 /* Handle */
@@ -55,6 +57,7 @@ $bg-color__sun: #FF6666;
     
     background: #90949b;
     border-radius: 5px;
+   
 }
 
 /* Handle on hover */

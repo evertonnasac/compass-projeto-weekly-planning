@@ -134,7 +134,7 @@ const renderSchedule = (key, value, idDay) =>{
 
     let cardHour = document.createElement("div")
     cardHour.classList.add(idDay)
-    cardHour.innerHTML = key
+    cardHour.innerHTML = key.replace(":", "h") + "m"
     containerHour.appendChild(cardHour)
 
     let containerCardWork =  document.createElement("div")
@@ -167,6 +167,13 @@ const renderSchedule = (key, value, idDay) =>{
     })
 
     containerWork.appendChild(containerCardWork)
+    if(value.length > 1){
+        let img = document.createElement("img")
+        img.setAttribute("src", "./assets/images/redline.png")
+        containerCardWork.appendChild(img)
+        containerCardWork.classList.add("conflict")
+        cardHour.classList.add("conflict")
+    }
     
 }
 

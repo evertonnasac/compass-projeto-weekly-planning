@@ -10,11 +10,14 @@ $b-radius__cards-work: 15px;
 
 @mixin styleHourWork($color) {
     width: 100%;
-    max-width: 65px;
     height: $hight__cards-work;
     border-radius: $b-radius__cards-work;
     background-color: $color;
     flex-shrink: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -92,29 +95,35 @@ main{
         height: 90%;
         width: 100%;
 
-        overflow: scroll;
         transform: rotateX(180deg);
 
         padding-bottom: 20px;
+
+        overflow: scroll;
         
         .panel-works__container-works{
             min-height: 99%;
-            width: 100%;
+            //width: 100%;
 
             transform: rotateX(180deg);
 
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
+            gap: 10px;
 
             .panel-works__hour{
-                width: 8%;
-                //height: 99%;
+                width: 65px;
+                height: 99%;
     
                 display: flex;
                 flex-direction: column;
                 
                 gap: 10px;
                 flex-shrink: 0;
+
+                .conflict{
+                    background-color:  $bg-color__err !important;
+                }
     
                 .mon{
                     @include styleHourWork($bg-color__mon);
@@ -141,11 +150,25 @@ main{
             
             .container-works__content{
                 height: 99%;
-                width: 90%;
+                //width: 90%;
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
 
+                .conflict{
+                    position: relative;
+                    
+                    img{
+                        position: absolute;
+                        left: -80px;
+                        top: 12px;
+                        
+                    }
+
+                    .card-work{
+                        border-left-color: $bg-color__err !important;
+                    }
+                }
                
                 .content-works__container-card{
                     display: flex;
@@ -206,6 +229,7 @@ main{
                     .sun{
                         @include styleCardWork($bg-color__sun)
                     }
+                    
                 }
 
                 
