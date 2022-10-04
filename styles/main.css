@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr,
 address, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup,
 tt, var, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
@@ -24,6 +28,32 @@ body {
   width: 100vw;
 }
 
+::-webkit-scrollbar {
+  width: 7px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(216, 211, 211);
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #90949b;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-x {
+  width: 1000px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .screen {
   width: 90%;
   height: 95%;
@@ -31,6 +61,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  font-family: "Poppins";
 }
 
 ::-webkit-scrollbar {
@@ -50,6 +81,10 @@ body {
   border-radius: 5px;
 }
 
+::-webkit-scrollbar-x {
+  width: 1000px;
+}
+
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
@@ -62,7 +97,6 @@ header {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
-  border-radius: 35px;
 }
 header .header__container--title {
   display: flex;
@@ -70,17 +104,37 @@ header .header__container--title {
   justify-content: center;
   width: 40%;
   height: 50%;
+  padding-left: 10px;
   background-color: #6688FF;
   color: #fff;
   border-radius: 0px 14px 15px 0px;
+}
+header .header__container--title p:first-child {
+  font-size: 20px;
+  font-weight: 700;
+}
+header .header__container--title p:nth-child(2) {
+  font-size: 12px;
+}
+header .header__container-time {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #333333;
+  margin-right: 5px;
+}
+header .header__container-time p:first-child {
+  font-size: 25px;
 }
 header .header__btn {
   border-radius: 10px;
   border: none;
   color: #fff;
+  font-family: "Poppins";
   cursor: pointer;
   width: 15%;
-  height: 30%;
+  height: 35%;
 }
 header .header__btn--add {
   background-color: #2CBE82;
@@ -106,6 +160,10 @@ header .header__btn--remove {
   border-radius: 5px;
 }
 
+::-webkit-scrollbar-x {
+  width: 1000px;
+}
+
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
@@ -123,6 +181,7 @@ header .header__btn--remove {
   border-radius: 10px;
   padding: 10px 12px;
   font-size: 12px;
+  font-family: "Poppins";
   height: 60%;
 }
 .work-inputs .work__input--desc {
@@ -135,6 +194,7 @@ header .header__btn--remove {
   border-radius: 10px;
   border: none;
   color: #fff;
+  font-family: "Poppins";
   cursor: pointer;
   height: 60%;
 }
@@ -162,6 +222,10 @@ header .header__btn--remove {
   border-radius: 5px;
 }
 
+::-webkit-scrollbar-x {
+  width: 1000px;
+}
+
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
@@ -170,18 +234,20 @@ header .header__btn--remove {
 main {
   width: 100%;
   height: 75%;
+  position: relative;
+  color: #333333;
 }
 main .main__header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
   height: 10%;
 }
 main .main__header .main-heder__hour {
-  height: calc(100% + 15px);
-  width: 6.5%;
-  padding: 1.5% 1%;
-  font-size: 1.3vw;
+  height: 100%;
+  width: 65px;
+  padding: 1.5% 0.5%;
+  font-size: 15px;
   box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
   border-radius: 10px;
 }
@@ -199,6 +265,7 @@ main .main__header .main-header__container--days .btn-days {
   color: #fff;
   font-weight: 700;
   cursor: pointer;
+  font-family: "Poppins";
   width: 12%;
   height: 60%;
 }
@@ -247,6 +314,8 @@ main .main__panel--works .panel-works__container-works .panel-works__hour {
   flex-direction: column;
   gap: 10px;
   flex-shrink: 0;
+  font-size: 12px;
+  color: #3B3E45;
 }
 main .main__panel--works .panel-works__container-works .panel-works__hour .conflict {
   background-color: #F55D5D !important;
@@ -343,7 +412,6 @@ main .main__panel--works .panel-works__container-works .container-works__content
   gap: 20px;
   height: 65px;
   flex-shrink: 0;
-  box-shadow: 0px 2px 5.5px rgba(0, 0, 0, 0.02);
 }
 main .main__panel--works .panel-works__container-works .container-works__content .content-works__container-card .card-work {
   width: 350px;
@@ -355,7 +423,8 @@ main .main__panel--works .panel-works__container-works .container-works__content
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  background: linear-gradient(112.83deg, rgba(255, 255, 255, 0.3444) 0%, rgba(255, 255, 255, 0.336) 110.84%);
+  background-image: linear-gradient(112.83deg, rgba(255, 255, 255, 0.3444) 0%, rgba(255, 255, 255, 0.336) 110.84%);
+  box-shadow: 0px 2px 5.5px #E5E5E5;
 }
 main .main__panel--works .panel-works__container-works .container-works__content .content-works__container-card .card-work .btn__remove {
   width: 60px;
@@ -365,6 +434,7 @@ main .main__panel--works .panel-works__container-works .container-works__content
   background-color: #98031E;
   color: #FFFFFF;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
 }
 main .main__panel--works .panel-works__container-works .container-works__content .content-works__container-card .mon {
@@ -387,4 +457,16 @@ main .main__panel--works .panel-works__container-works .container-works__content
 }
 main .main__panel--works .panel-works__container-works .container-works__content .content-works__container-card .sun {
   border-left: 10px solid #FF6666;
+}
+main figure {
+  width: 35%;
+  height: 65%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -100;
+}
+main figure img {
+  width: 100%;
+  height: 100%;
 }/*# sourceMappingURL=main.css.map */

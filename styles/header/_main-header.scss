@@ -9,7 +9,7 @@ header{
     align-items: center;
 
     box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
-    border-radius: 35px;
+    
 
     //Estilização do container do título e subtítulo
     .header__container--title{
@@ -19,18 +19,44 @@ header{
         
         width: 40%;
         height: 50%;
+        padding-left: 10px;
 
         background-color: #6688FF;
         color: #fff;
 
         border-radius: 0px 14px 15px 0px;
+
+        & p:first-child{
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        & p:nth-child(2){
+            font-size: 12px;
+        }
+    }
+
+    //Estilizando o container da hora e data atual
+    .header__container-time{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: $color-text__main;
+
+        margin-right: 5px;
+
+        & p:first-child{
+            font-size: 25px;
+        }
+
     }
 
     //Estilização do container ddos botões de adicionar e remover do localstorage
     .header__btn{
         @include style__btn--add-remove;
         width: 15%;
-        height: 30%;
+        height: 35%;
     }
 
     .header__btn--add{
